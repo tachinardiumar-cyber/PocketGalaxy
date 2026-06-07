@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pocket Galaxy Cookies</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind CSS (Play CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -37,10 +34,9 @@
         }
     </script>
 </head>
-<body class="font-body bg-gradient-to-br from-brand-galaxy1 via-blue-950 to-slate-900 text-white min-h-screen">
+<body class="font-body bg-gradient-to-br from-brand-galaxy1 via-blue-950 to-slate-900 text-white min-h-screen relative">
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-galaxy1/80 backdrop-blur-md border-b border-white/10">
+    <nav class="fixed w-full z-40 transition-all duration-300 bg-brand-galaxy1/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-2">
@@ -49,172 +45,444 @@
                         Pocket Galaxy Cookies
                     </span>
                 </div>
-                <div>
-                    <a href="#pesan" class="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-amber-700 hover:bg-amber-800 transition-colors shadow-[0_0_15px_rgba(180,83,9,0.4)]">
-                        Pesan
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-amber-500 transition-colors font-medium">Beranda</a>
+                    <a href="#menu" class="text-gray-300 hover:text-amber-500 transition-colors font-medium">Menu Orbit</a>
+                    <a href="#promo" class="text-gray-300 hover:text-amber-500 transition-colors font-medium">Promo</a>
+                    <a href="#testimoni" class="text-gray-300 hover:text-amber-500 transition-colors font-medium">Testimoni</a>
+                </div>
+
+                <div class="flex items-center gap-6">
+                    <button id="cartBtn" class="relative text-gray-300 hover:text-amber-500 transition-colors text-2xl z-50">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="cartCount" class="absolute -top-2 -right-3 bg-amber-700 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+                    </button>
+                    
+                    <a href="#pesan" class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-full text-white bg-amber-700 hover:bg-amber-800 transition-colors shadow-[0_0_15px_rgba(180,83,9,0.4)] relative z-50">
+                        Hubungi Admin
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center pt-20">
-        <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
             <img src="https://i.postimg.cc/sxP05g2S/1766370751198-2.jpg" alt="Galaxy Cookies" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-b from-brand-galaxy1/80 via-blue-950/70 to-slate-900/95"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-galaxy1/80 via-blue-950/80 to-slate-900/95"></div>
         </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-10 pointer-events-none">
             <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-lg text-transparent bg-clip-text bg-gradient-to-r from-white to-amber-200">
                 🌌 Gigitan Manis Sebesar Galaksi dalam Genggamanmu!
             </h1>
             <p class="mt-4 text-base sm:text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
                 Selamat datang di Pocket Galaxy Cookies! Kami membawa kelezatan out of this world langsung ke tanganmu. Nikmati sensasi soft-baked cookies dengan tekstur yang super chewy, lumer di dalam, dan dibuat menggunakan cokelat premium pilihan. Setiap pesanan dibuat dengan sistem Pre-Order (PO) 24 jam sehingga cookies yang meluncur ke tempatmu selalu fresh from the oven!
             </p>
-            <a href="#menu" class="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-full text-white bg-amber-700 hover:bg-amber-800 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(184,115,51,0.5)]">
+            <a href="#menu" class="pointer-events-auto inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold rounded-full text-white bg-amber-700 hover:bg-amber-800 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(184,115,51,0.5)]">
                 Jelajahi Menu <i class="fa-solid fa-rocket"></i>
             </a>
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="py-24 relative">
+    <section id="menu" class="py-24 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">🚀 Menu Orbit Kami</h2>
                 <p class="text-gray-300 text-lg">Pilih rasi bintang favoritmu dari varian cookies andalan kami:</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1: Original (Available) -->
-                <div class="bg-white/5 border border-amber-700/50 rounded-2xl p-6 backdrop-blur-sm hover:-translate-y-2 transition-transform duration-300 shadow-[0_0_20px_rgba(180,83,9,0.15)] relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 bg-amber-700 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10">Tersedia Sekarang!</div>
-                    <div class="h-48 w-full bg-amber-900/30 rounded-xl mb-6 flex items-center justify-center group-hover:bg-amber-900/40 transition-colors">
-                        <i class="fa-solid fa-cookie text-6xl text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]"></i>
-                    </div>
-                    <h3 class="font-heading text-2xl font-bold text-amber-500 mb-2">Original Cookies</h3>
-                    <p class="text-xl font-semibold text-white mb-4">Rp10.000</p>
-                    <p class="text-gray-300 text-sm leading-relaxed">
-                        Kelezatan klasik yang timeless. Perpaduan adonan chewy dan lelehan cokelat premiumnya siap meledak di mulutmu layaknya supernova!
-                    </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white/5 border border-amber-700/50 rounded-2xl p-5 backdrop-blur-sm hover:-translate-y-2 transition-transform duration-300 shadow-[0_0_20px_rgba(180,83,9,0.15)] relative flex flex-col z-30">
+                    <div class="absolute top-0 right-0 bg-amber-700 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl z-10">Tersedia!</div>
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&q=80" alt="Original Cookies" class="w-full h-48 object-cover rounded-xl mb-4 transition-opacity">
+                    <h3 class="font-heading text-xl font-bold text-amber-500 mb-1">Supernova Original</h3>
+                    <p class="text-lg font-semibold text-white mb-2">Rp10.000</p>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2 flex-grow">Perpaduan adonan chewy dan lelehan cokelat premium klasik.</p>
+                    
+                    <button data-name="Supernova Original" data-price="10000" class="add-to-cart-btn w-full text-center py-2 bg-amber-700/20 border border-amber-700 hover:bg-amber-700 text-white rounded-lg transition-colors font-medium flex items-center justify-center gap-2 relative z-50 cursor-pointer">
+                        <i class="fa-solid fa-plus pointer-events-none"></i> <span class="pointer-events-none">Keranjang</span>
+                    </button>
                 </div>
 
-                <!-- Card 2: Matcha (Coming Soon) -->
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm opacity-80 relative">
-                    <div class="absolute top-0 right-0 bg-slate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10">Coming Soon!</div>
-                    <div class="h-48 w-full bg-emerald-900/20 rounded-xl mb-6 flex items-center justify-center">
-                        <i class="fa-solid fa-leaf text-6xl text-emerald-600"></i>
-                    </div>
-                    <h3 class="font-heading text-2xl font-bold text-gray-300 mb-2">Matcha Cookies</h3>
-                    <p class="text-xl font-semibold text-gray-400 mb-4">Rp15.000</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Bawa ketenangan alam semesta dengan rasa matcha yang autentik. Sedang dalam perjalanan menuju orbitmu!
-                    </p>
+                <div class="bg-white/5 border border-amber-700/50 rounded-2xl p-5 backdrop-blur-sm hover:-translate-y-2 transition-transform duration-300 shadow-[0_0_20px_rgba(180,83,9,0.15)] relative flex flex-col z-30">
+                    <div class="absolute top-0 right-0 bg-amber-700 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl z-10">Tersedia!</div>
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&q=80" alt="Double Chocolate" class="w-full h-48 object-cover rounded-xl mb-4 transition-opacity">
+                    <h3 class="font-heading text-xl font-bold text-amber-500 mb-1">Dark Matter Choco</h3>
+                    <p class="text-lg font-semibold text-white mb-2">Rp12.000</p>
+                    <p class="text-gray-400 text-sm mb-4 line-clamp-2 flex-grow">Cokelat pekat luar dalam, khusus untuk pecinta rasa intens.</p>
+                    
+                    <button data-name="Dark Matter Choco" data-price="12000" class="add-to-cart-btn w-full text-center py-2 bg-amber-700/20 border border-amber-700 hover:bg-amber-700 text-white rounded-lg transition-colors font-medium flex items-center justify-center gap-2 relative z-50 cursor-pointer">
+                        <i class="fa-solid fa-plus pointer-events-none"></i> <span class="pointer-events-none">Keranjang</span>
+                    </button>
                 </div>
 
-                <!-- Card 3: Red Velvet (Coming Soon) -->
-                <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm opacity-80 relative">
-                    <div class="absolute top-0 right-0 bg-slate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10">Coming Soon!</div>
-                    <div class="h-48 w-full bg-rose-900/20 rounded-xl mb-6 flex items-center justify-center">
-                        <i class="fa-solid fa-certificate text-6xl text-rose-700"></i>
-                    </div>
-                    <h3 class="font-heading text-2xl font-bold text-gray-300 mb-2">Red Velvet Cookies</h3>
-                    <p class="text-xl font-semibold text-gray-400 mb-4">Rp15.000</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Perpaduan manis dan gurih yang elegan. Bersiaplah untuk pendaratan rasa yang sempurna!
-                    </p>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm opacity-80 relative flex flex-col z-30">
+                    <div class="absolute top-0 right-0 bg-slate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl z-10">Coming Soon</div>
+                    <img src="https://images.unsplash.com/photo-1605691157297-7fc5863ba317?w=400&q=80" alt="Matcha" class="w-full h-48 object-cover rounded-xl mb-4 filter grayscale-[30%]">
+                    <h3 class="font-heading text-xl font-bold text-gray-300 mb-1">Nebula Matcha</h3>
+                    <p class="text-lg font-semibold text-gray-400 mb-2">Rp15.000</p>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2 flex-grow">Bawa ketenangan alam semesta dengan rasa matcha autentik.</p>
+                    <button disabled class="w-full text-center py-2 bg-white/5 text-gray-500 rounded-lg cursor-not-allowed">Belum Tersedia</button>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-5 backdrop-blur-sm opacity-80 relative flex flex-col z-30">
+                    <div class="absolute top-0 right-0 bg-slate-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-xl z-10">Coming Soon</div>
+                    <img src="https://images.unsplash.com/photo-1618923850106-953e5d0a6f4c?w=400&q=80" alt="Red Velvet" class="w-full h-48 object-cover rounded-xl mb-4 filter grayscale-[30%]">
+                    <h3 class="font-heading text-xl font-bold text-gray-300 mb-1">Mars Red Velvet</h3>
+                    <p class="text-lg font-semibold text-gray-400 mb-2">Rp15.000</p>
+                    <p class="text-gray-500 text-sm mb-4 line-clamp-2 flex-grow">Perpaduan manis dan gurih elegan bak pendaratan di Mars.</p>
+                    <button disabled class="w-full text-center py-2 bg-white/5 text-gray-500 rounded-lg cursor-not-allowed">Belum Tersedia</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Promo Section -->
-    <section class="py-16">
+    <section id="promo" class="py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-amber-900/80 to-slate-900 rounded-3xl p-8 md:p-12 border border-amber-700/50 shadow-[0_0_30px_rgba(180,83,9,0.2)] flex flex-col md:flex-row items-center justify-between gap-8 backdrop-blur-md">
+                <div class="md:w-2/3">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-star text-3xl text-yellow-400 animate-pulse"></i>
+                        <h2 class="font-heading text-2xl md:text-4xl font-bold text-white">Misi Spesial: Loyalty Reward!</h2>
+                    </div>
+                    <p class="text-amber-100 md:text-lg leading-relaxed mb-6">
+                        Kumpulkan terus riwayat pesananmu! Setiap kali akumulasi pesananmu mencapai 10 pcs cookies, kamu berhak mendapatkan <span class="font-bold text-white bg-amber-700 px-3 py-1 rounded-md ml-1">DISKON 20%</span>
+                    </p>
+                    <button onclick="document.getElementById('cartBtn').click()" class="inline-block bg-white text-amber-900 font-bold px-6 py-3 rounded-full hover:bg-amber-100 transition-colors">Buka Keranjang Sekarang</button>
+                </div>
+                <div class="md:w-1/3 flex gap-4 justify-center">
+                    <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=150&h=150&fit=crop" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.3)] rotate-[-6deg]">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=150&h=150&fit=crop" class="w-24 h-24 rounded-2xl object-cover border-2 border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.3)] rotate-[6deg] mt-4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimoni" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">📡 Ditunggu Pesanannya Yaa</h2>
+                
+    </section>
+
+    <section class="py-12 bg-slate-900/80 border-y border-white/5">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-br from-amber-900 via-orange-900 to-amber-950 rounded-3xl p-8 md:p-12 border border-amber-700/50 shadow-[0_0_30px_rgba(180,83,9,0.3)] flex flex-col md:flex-row items-center gap-8">
-                <div class="flex-shrink-0">
-                    <i class="fa-solid fa-star text-6xl text-yellow-400 animate-pulse drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]"></i>
-                </div>
-                <div>
-                    <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3">💫 Misi Spesial: Loyalty Reward!</h2>
-                    <p class="text-amber-100 md:text-lg leading-relaxed">
-                        <span class="font-bold text-yellow-400">PROMO SPESIAL:</span> Kumpulkan terus riwayat pesananmu! Setiap kali akumulasi pesananmu mencapai 10 pcs cookies, kamu berhak mendapatkan <span class="font-bold text-white bg-amber-700 px-2 py-0.5 rounded">DISKON 20%!</span> Jajan makin sering, makin untung.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Info Pengiriman Section -->
-    <section class="py-16 bg-slate-900/50 border-y border-white/5">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="font-heading text-3xl font-bold text-white mb-4">🛰️ Info Pendaratan & Pengiriman</h2>
-                <p class="text-gray-400">Kami siap menerbangkan cookies ini langsung ke titik koordinatmu:</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10">
-                    <div class="w-12 h-12 rounded-full bg-blue-900/50 flex items-center justify-center flex-shrink-0 text-blue-400 border border-blue-500/30">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-900/50 flex items-center justify-center text-blue-400 border border-blue-500/30">
                         <i class="fa-solid fa-motorcycle text-xl"></i>
                     </div>
                     <div>
-                        <h4 class="font-heading font-bold text-lg text-white mb-1">Kurir Lokal</h4>
-                        <p class="text-gray-400 text-sm">Siap meluncur aman untuk area Ternate.</p>
+                        <h4 class="font-heading font-bold text-lg text-white">Kurir Lokal Ternate</h4>
+                        <p class="text-gray-400 text-sm">Siap meluncur aman ke titik koordinatmu.</p>
                     </div>
                 </div>
-
-                <div class="flex items-start gap-4 bg-white/5 p-6 rounded-2xl border border-white/10 opacity-70">
-                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center flex-shrink-0 text-gray-400 border border-gray-600">
+                <div class="hidden md:block w-px h-12 bg-white/10"></div>
+                <div class="flex items-center gap-4 opacity-70">
+                    <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 border border-gray-600">
                         <i class="fa-solid fa-box-open text-xl"></i>
                     </div>
                     <div>
-                        <h4 class="font-heading font-bold text-lg text-gray-300 mb-1">Grab / GoSend</h4>
-                        <p class="text-gray-500 text-sm">(Coming Soon) Layanan pendaratan instan sedang kami persiapkan!</p>
+                        <h4 class="font-heading font-bold text-lg text-gray-300">Layanan Instan</h4>
+                        <p class="text-gray-500 text-sm">(Coming Soon) Segera mengudara!</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / CTA Terakhir Section -->
-    <footer id="pesan" class="pt-24 pb-12 relative overflow-hidden">
-        <!-- Decorative subtle glow -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-amber-900/20 blur-[100px] rounded-full pointer-events-none"></div>
-        
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <section id="pesan" class="pt-20 pb-10 relative z-10">
+        <div class="max-w-3xl mx-auto px-4 text-center">
             <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">📞 Siap Meluncur ke Orbit Rasa?</h2>
-            <p class="text-gray-300 mb-10 leading-relaxed text-lg">
-                Jangan sampai kehabisan slot PO hari ini! Hubungi salah satu mission control kami di bawah ini untuk pemesanan yang cepat dan mudah:
+            <p class="text-gray-300 mb-8 leading-relaxed text-lg">
+                Jangan sampai kehabisan slot PO hari ini! Hubungi mission control kami untuk pemesanan:
             </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-                <!-- Admin 1 Button -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="https://wa.me/6285240719322" target="_blank" rel="noopener noreferrer" 
-                   class="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 font-semibold rounded-full text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(37,211,102,0.4)]">
+                   class="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 font-semibold rounded-full text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(37,211,102,0.3)]">
                     <i class="fa-brands fa-whatsapp text-xl"></i> Chat Admin 1
                 </a>
-                
-                <!-- Admin 2 Button -->
                 <a href="https://wa.me/6282393053919" target="_blank" rel="noopener noreferrer" 
-                   class="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 font-semibold rounded-full text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(37,211,102,0.4)]">
+                   class="w-full sm:w-auto inline-flex justify-center items-center gap-2 px-8 py-4 font-semibold rounded-full text-white bg-[#25D366] hover:bg-[#1ebd5a] transition-all duration-300 hover:scale-105 shadow-[0_0_15px_rgba(37,211,102,0.3)]">
                     <i class="fa-brands fa-whatsapp text-xl"></i> Chat Admin 2
                 </a>
             </div>
+        </div>
+    </section>
 
-            <div class="border-t border-white/10 pt-8">
-                <div class="flex items-center justify-center gap-2 mb-2 text-amber-500">
-                    <i class="fa-solid fa-cookie-bite"></i>
+    <footer class="bg-[#0b1021] pt-16 pb-8 border-t border-white/10 relative overflow-hidden">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-amber-900/10 blur-[100px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-cookie-bite text-amber-500 text-2xl"></i>
+                        <span class="font-heading font-bold text-xl text-white">Pocket Galaxy</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                        Membawa kelezatan out of this world langsung ke tanganmu. A bite of the universe! 🌠
+                    </p>
                 </div>
-                <p class="font-heading text-gray-400 tracking-wider">
-                    Pocket Galaxy Cookies – A bite of the universe. 🌠
-                </p>
-                <p class="text-xs text-gray-600 mt-4">&copy; 2026 Pocket Galaxy Cookies. All rights reserved.</p>
+
+                <div>
+                    <h4 class="font-heading font-bold text-white mb-4 text-lg">Navigasi</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition-colors text-sm">Beranda</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-amber-500 transition-colors text-sm">Menu Orbit</a></li>
+                        <li><a href="#promo" class="text-gray-400 hover:text-amber-500 transition-colors text-sm">Loyalty Promo</a></li>
+                        <li><a href="#testimoni" class="text-gray-400 hover:text-amber-500 transition-colors text-sm">Testimoni</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-white mb-4 text-lg">Sosial Media</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition-colors text-sm flex items-center gap-2"><i class="fa-brands fa-instagram"></i> @pocketgalaxy.cookies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-amber-500 transition-colors text-sm flex items-center gap-2"><i class="fa-brands fa-tiktok"></i> @pocketgalaxy.cookies</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading font-bold text-white mb-4 text-lg">Markas Besar</h4>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 text-sm flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot mt-1 text-amber-500"></i>
+                            <span>Kota Ternate,<br>Maluku Utara</span>
+                        </li>
+                        <li class="text-gray-400 text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-amber-500"></i>
+                            <span>Sistem PO 24 Jam</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">&copy; 2026 Pocket Galaxy Cookies by Apill. All rights reserved.</p>
+                <div class="text-gray-600 text-sm">
+                    Dibuat dengan <i class="fa-solid fa-heart text-amber-800 mx-1"></i> & <i class="fa-solid fa-star text-amber-800 mx-1"></i>
+                </div>
             </div>
         </div>
     </footer>
 
+    <div id="cartOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+
+    <div id="cartSidebar" class="fixed inset-y-0 right-0 w-full sm:w-[400px] bg-[#020617] border-l border-white/10 shadow-2xl transform translate-x-full transition-transform duration-300 z-[60] flex flex-col">
+        <div class="p-5 border-b border-white/10 flex justify-between items-center bg-blue-950/30">
+            <h2 class="font-heading text-xl font-bold text-white"><i class="fa-solid fa-basket-shopping text-amber-500 mr-2"></i> Kargo Pesanan</h2>
+            <button id="closeCartBtn" class="text-gray-400 hover:text-white transition-colors text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <div id="emptyCartMsg" class="flex flex-col items-center justify-center h-full text-center text-gray-400 opacity-70">
+                <i class="fa-solid fa-satellite text-4xl mb-3 text-gray-500"></i>
+                <p>Kargomu masih kosong layaknya ruang angkasa hampa.</p>
+            </div>
+        </div>
+
+        <div id="buyerForm" class="px-5 pb-2 space-y-3 hidden">
+            <div>
+                <label class="text-xs text-gray-400 mb-1 block">Nama Pembeli <span class="text-red-500">*</span></label>
+                <input type="text" id="buyerName" placeholder="Masukkan nama kamu" class="w-full bg-slate-900 border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors">
+            </div>
+            <div>
+                <label class="text-xs text-gray-400 mb-1 block">Alamat / Titik COD <span class="text-red-500">*</span></label>
+                <textarea id="buyerAddress" rows="2" placeholder="Detail alamat pengiriman" class="w-full bg-slate-900 border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors"></textarea>
+            </div>
+        </div>
+
+        <div class="p-6 border-t border-white/10 bg-gradient-to-t from-blue-950/50 to-transparent">
+            <div class="flex justify-between items-center mb-6">
+                <span class="text-gray-300 font-medium">Total Estimasi Orbit:</span>
+                <span id="cartTotal" class="font-heading text-2xl font-bold text-amber-500">Rp0</span>
+            </div>
+            
+            <button id="checkoutBtn" class="w-full py-3.5 bg-[#25D366] hover:bg-[#1ebd5a] text-white font-bold rounded-xl transition-all duration-300 flex justify-center items-center gap-3 shadow-[0_0_15px_rgba(37,211,102,0.2)] hover:scale-[1.02]">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> Luncurkan Pesanan via WA
+            </button>
+            <p class="text-center text-xs text-gray-500 mt-3">*Detail pengiriman dan ongkos kirim akan didiskusikan dengan admin.</p>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tangkap semua tombol tambah keranjang
+            const addButtons = document.querySelectorAll('.add-to-cart-btn');
+            
+            // Tambahkan event klik ke masing-masing tombol
+            addButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const name = button.getAttribute('data-name');
+                    const price = parseInt(button.getAttribute('data-price'));
+                    addToCart(name, price);
+                });
+            });
+
+            // Sidebar DOM Elements
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartOverlay = document.getElementById('cartOverlay');
+            const cartBtn = document.getElementById('cartBtn');
+            const closeCartBtn = document.getElementById('closeCartBtn');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            // Fungsi Buka/Tutup Sidebar
+            function toggleCart() {
+                cartSidebar.classList.toggle('translate-x-full');
+                cartOverlay.classList.toggle('hidden');
+                
+                // Mencegah scroll pada body saat sidebar terbuka
+                if (cartSidebar.classList.contains('translate-x-full')) {
+                    document.body.classList.remove('overflow-hidden');
+                } else {
+                    document.body.classList.add('overflow-hidden');
+                }
+            }
+
+            // Event Listeners untuk Sidebar & Checkout
+            cartBtn.addEventListener('click', toggleCart);
+            closeCartBtn.addEventListener('click', toggleCart);
+            cartOverlay.addEventListener('click', toggleCart);
+            checkoutBtn.addEventListener('click', checkoutToWhatsApp);
+        });
+
+        // Fungsi Tambah ke Keranjang
+        function addToCart(name, price) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ name: name, price: price, qty: 1 });
+            }
+            updateCartUI();
+            
+            // Otomatis buka sidebar saat ditambah
+            const cartSidebar = document.getElementById('cartSidebar');
+            if(cartSidebar.classList.contains('translate-x-full')) {
+                cartSidebar.classList.remove('translate-x-full');
+                document.getElementById('cartOverlay').classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }
+        }
+
+        // Fungsi Update Kuantitas (-/+)
+        window.updateQty = function(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        // Fungsi Render/Update Tampilan Keranjang
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const emptyMsg = document.getElementById('emptyCartMsg');
+            const totalEl = document.getElementById('cartTotal');
+            const countEl = document.getElementById('cartCount');
+            const buyerForm = document.getElementById('buyerForm');
+            let total = 0;
+            let count = 0;
+
+            // Kosongkan container selain pesan default
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.appendChild(emptyMsg);
+                emptyMsg.classList.remove('hidden');
+                emptyMsg.classList.add('flex');
+                buyerForm.classList.add('hidden'); // Sembunyikan form
+            } else {
+                emptyMsg.classList.add('hidden');
+                emptyMsg.classList.remove('flex');
+                buyerForm.classList.remove('hidden'); // Tampilkan form
+
+                cart.forEach((item, index) => {
+                    const subtotal = item.price * item.qty;
+                    total += subtotal;
+                    count += item.qty;
+
+                    container.innerHTML += `
+                        <div class="flex justify-between items-center bg-white/5 p-4 rounded-xl border border-white/10">
+                            <div class="flex-1">
+                                <h4 class="text-white font-medium text-sm md:text-base">${item.name}</h4>
+                                <p class="text-amber-500 font-semibold mt-1">Rp${item.price.toLocaleString('id-ID')}</p>
+                            </div>
+                            
+                            <div class="flex items-center gap-3 bg-slate-900 rounded-lg p-1 border border-white/10">
+                                <button onclick="updateQty(${index}, -1)" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 rounded-md transition-colors">
+                                    <i class="fa-solid ${item.qty === 1 ? 'fa-trash text-red-400' : 'fa-minus'}"></i>
+                                </button>
+                                <span class="text-white font-medium w-4 text-center">${item.qty}</span>
+                                <button onclick="updateQty(${index}, 1)" class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 rounded-md transition-colors">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // Update Total & Badge Angka
+            totalEl.innerText = `Rp${total.toLocaleString('id-ID')}`;
+            if (count > 0) {
+                countEl.innerText = count;
+                countEl.classList.remove('hidden');
+            } else {
+                countEl.classList.add('hidden');
+            }
+        }
+
+        // Fungsi Checkout ke WhatsApp dengan Data Form
+        function checkoutToWhatsApp() {
+            if (cart.length === 0) {
+                alert("Wah, pesawat kargomu masih kosong. Yuk isi dengan cookies dulu!");
+                return;
+            }
+
+            // Ambil data dari Form Pembeli
+            const buyerName = document.getElementById('buyerName').value.trim();
+            const buyerAddress = document.getElementById('buyerAddress').value.trim();
+
+            if (!buyerName || !buyerAddress) {
+                alert("⚠️ Kapten! Mohon isi Nama dan Alamat pengiriman terlebih dahulu ya!");
+                return;
+            }
+
+            // Siapkan Format Pesan WhatsApp
+            let textRaw = `🚀 *HALO POCKET GALAXY! SAYA INGIN PESAN:* 🚀\n\n`;
+            textRaw += `👤 *Nama:* ${buyerName}\n`;
+            textRaw += `📍 *Alamat:* ${buyerAddress}\n\n`;
+            textRaw += `*🛒 DETAIL PESANAN:*\n`;
+
+            let totalAll = 0;
+            cart.forEach((item, index) => {
+                const sub = item.price * item.qty;
+                totalAll += sub;
+                textRaw += `${index + 1}. *${item.name}*\n   ${item.qty}x @ Rp${item.price.toLocaleString('id-ID')} = Rp${sub.toLocaleString('id-ID')}\n`;
+            });
+
+            textRaw += `\n==========================\n`;
+            textRaw += `💰 *TOTAL KERANJANG: Rp${totalAll.toLocaleString('id-ID')}*\n`;
+            textRaw += `==========================\n\n`;
+            textRaw += `*Mohon info total akhir beserta ongkirnya ya kak.* Terima kasih! 🌠`;
+
+            // Kirim pesan ke nomor admin (Ganti jika perlu)
+            const adminPhone = "6285240719322"; 
+            const waLink = `https://wa.me/${adminPhone}?text=${encodeURIComponent(textRaw)}`;
+            
+            // Buka tab WhatsApp
+            window.open(waLink, '_blank');
+        }
+    </script>
 </body>
 </html>
